@@ -1,0 +1,33 @@
+%section.content-wrapper
+  %section.content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h5 Editar Freelance
+          .box-body
+            = form_for [@freelance], builder: CustomFormBuilder, url: {action: "update"}, html:{role: "form"} do |f|
+              .col-md-9
+                .input-field
+                  = f.email_field :email, autofocus: true, class: "validate", id: "fEmail"
+                  %label{for: "fEmail"} Email
+                  = f.field_error :email
+                .input-field
+                  = f.text_field :name, class: "validate", id: "fNmame"
+                  %label{for: "fNmame"} Nombre
+                .input-field
+                  = f.text_field :last_name, class: "validate", id: "fLastName"
+                  %label{for: "fLastName"} Apellido
+              .col-md-3
+                .input-field
+                  %button.waves-effect.btn-block.btn-large.deep-orange.darken-2 Actualizar
+                .imput-field{style: "margin-top: 50px;"}
+                .input-field
+                  = f.collection_select(:f_role_id, FRole.all, :id, :name, {:include_blank => 'Selecione un role'}, class: "collection_select", style: "display: block;")
+                .input-field
+                  %form
+                    %p
+                      = f.radio_button(:gender, "masculino", id: "fMasculino")
+                      %label{for: "fMasculino"} Masculino
+                      = f.radio_button(:gender, "femenino", id: "fFemenino")
+                      %label{for: "fFemenino"} Femenino

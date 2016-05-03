@@ -1,0 +1,83 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="info-box bg-yellow" style="min-height: 128px;">
+            <span class="info-box-icon" style="height: 128px;"><h1>XP</h1></span>
+            <div class="info-box-content">
+              <span class="info-box-text"><%= current_freelance.level.name %></span>
+              <span class="info-box-number"><%= current_freelance.xp %></span>
+              <div class="progress">
+                <div class="progress-bar" style="width: <%= current_freelance.xp %>%"></div>
+              </div>
+              <span class="progress-description">
+                <%= current_freelance.xp %> de 100XP
+              </span>
+            </div><!-- /.info-box-content -->
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><%= @FreelancesCount %> / <%= @FreelancesCount %></h3>
+              <p>Freelances Activos</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user"></i>
+            </div>
+            <%= link_to admin_freelances_path, class: "small-box-footer" do %>
+              Ver
+              <i class="fa fa-arrow-circle-right"></i>
+            <% end -%>
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>44</h3>
+              <p>User Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cart-arrow-down"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>2000</h3>
+              <p>generado</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dollar"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div><!-- ./col -->
+      </div>
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+
+  

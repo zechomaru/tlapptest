@@ -1,0 +1,6 @@
+#delivery_form
+	= f.text_field :name, placeholder: "Ingrese un nombre"
+	= f.text_field :price, placeholder: "0"
+	= f.text_field :description, placeholder: "Ingrese una descripción"
+	= f.hidden_field :_destroy
+	= link_to "Eliminar", '#', class: "remove_fields pull-right"

@@ -1,0 +1,26 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Deliveries
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header
+            %h5
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Nombre
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @deliveries.each do |delivery|
+                %tr
+                  %td= delivery.name
+                  %td= delivery.created_at.httpdate.to_date
+                  %td 
+                    = link_to edit_admin_delivery_path(delivery) do
+                      %i.fa.fa-edit
+                  %td
+                    = link_to admin_delivery_path(delivery), method: :delete, data: { confirm: 'Esta seguro?' } do
+                      %i.fa.fa-remove{style: "color: #B21919;"}

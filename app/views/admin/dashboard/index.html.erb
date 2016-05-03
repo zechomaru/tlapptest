@@ -1,0 +1,96 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small></small>
+      </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><%= @pagesCount %></h3>
+              <p>Paginas activas</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-clone"></i>
+            </div>
+            <%= link_to admin_pages_path, class: "small-box-footer" do %>
+              Ver
+              <i class="fa fa-arrow-circle-right"></i>
+            <% end -%>
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><%= @FreelancesCount %> / <%= @FreelancesCount %></h3>
+              <p>Freelances Activos</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user"></i>
+            </div>
+            <%= link_to admin_freelances_path, class: "small-box-footer" do %>
+              Ver
+              <i class="fa fa-arrow-circle-right"></i>
+            <% end -%>
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>44</h3>
+              <p>User Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-cart-arrow-down"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>2000</h3>
+              <p>generado</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-dollar"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div><!-- ./col -->
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Pedidos</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <%= react_component 'Orders', { orders: @orders } %>
+              </div><!-- /.table-responsive -->
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">Ver todas</a>
+            </div><!-- /.box-footer -->
+          </div>
+        </div>
+      </div>
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+
+  

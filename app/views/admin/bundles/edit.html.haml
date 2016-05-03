@@ -1,0 +1,56 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Editar Paquete
+  %section.content
+    .row
+      .col-md-10.col-md-offset-1
+        .box.box-primary
+          .box-header.with-border
+            %h3.box-title Nueva
+          .box-body
+            = form_for [@bundle], url: {action: "update"}, html:{role: "form"} do |f|
+              .input-field
+                .row
+                  .col-md-8
+                    = f.text_field :name, {autofocus: true, class: "validate", id: "bundleName"}
+                    %label{for: "bundleName"} Nombre
+                  .col-md-4.text-center
+                    %button.waves-effect.btn.deep-orange.darken-2{style: "margin-top: 10px;"} Actualizar
+              .form-group.text-center.clearfix
+                .row
+                  %h5 Imagen
+                  %hr
+                  .col-md-6
+                    %strong Antes
+                    .picturePreview
+                      = image_tag @bundle.img.url(:thumb)
+                  .col-md-6
+                    %strong Despues
+                    .picturePreview#target
+                    = f.file_field :img, class: "inputFile", id: "pictureInput"
+                    %label{for: 'pictureInput'}
+                      %span Selecione una imagen
+                .row
+                  %h5 Imagen Hover
+                  %hr
+                  .col-md-6
+                    %strong Antes
+                    .picturePreview
+                      = image_tag @bundle.imghover.url(:thumb)
+                  .col-md-6
+                    %strong Imagen Hover
+                    .picturePreview#targetHover
+                    = f.file_field :imghover, class: "inputFile", id: "pictureInputHover"
+                    %label{for: 'pictureInputHover'}
+                      %span Selecione una imagen
+              .form-group.clearfix
+                - a = ''
+                = f.collection_check_boxes(:service_ids, Service.all, :id, :name) do |b|
+                  - if b.object.category.name != a
+                    - a = b.object.category.name
+                    %row
+                      %h5= b.object.category.name
+                  %li.list
+                    = b.check_box
+                    = b.label
+              .box-footer

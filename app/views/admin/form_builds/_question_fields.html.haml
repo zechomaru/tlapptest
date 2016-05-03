@@ -1,0 +1,4 @@
+#question_form
+	= f.text_field :content, placeholder: "Ingrese una pregunta"
+	= f.hidden_field :_destroy
+	= link_to "remove", '#', class: "remove_fields pull-right"

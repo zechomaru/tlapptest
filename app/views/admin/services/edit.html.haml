@@ -1,0 +1,50 @@
+%section.content-wrapper
+  %section.content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h3.box-title Editar Servicio
+          .box-body
+            = form_for [@service], url: {action: "update"}, html:{role: "form", multipart: true} do |f|
+              .col-md-9
+                .input-field
+                  = f.text_field :name, autofocus: true, class: "validate", id: "fName"
+                  %label{for: "fName"} Nombre
+                .form-group.text-center.clearfix
+                  .row
+                    %h5 Imagen
+                    %hr
+                    .col-md-6
+                      .picturePreview
+                        = image_tag @service.img.url(:thumb)
+                    .col-md-6
+                      %strong 
+                      .picturePreview#target
+                      = f.file_field :img, class: "inputFile", id: "pictureInput"
+                      %label{for: 'pictureInput'}
+                        %span Selecione una imagen
+                  .row
+                    %h5 Imagen Hover
+                    %hr
+                    .col-md-6
+                      .picturePreview
+                        = image_tag @service.imghover.url(:thumb)
+                    .col-md-6
+                      %strong 
+                      .picturePreview#targetHover
+                      = f.file_field :imghover, class: "inputFile", id: "pictureInputHover"
+                      %label{for: 'pictureInputHover'}
+                        %span Selecione una imagen
+                .input-field
+                  %h5 Categoria
+                  = f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => 'Selecione una categoria'}, class: "collection_select", style: "display: block;")
+                .input-field
+                  %h5 Delivery
+                  = f.fields_for :deliveries do |delivery|
+                    = render 'delivery_fields', f: delivery
+                  = link_to_add_fields "Agregar", f, :deliveries
+              .col-md-3
+                .input-field
+                  %button.waves-effect.btn-block.btn-large.deep-orange.darken-2 Editar
+                .imput-field{style: "margin-top: 50px;"}

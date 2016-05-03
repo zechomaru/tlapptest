@@ -1,0 +1,64 @@
+  <div style="background-image:url(<%= asset_path 'slider_gris.png' %>);
+  background-repeat:no-repeat;
+  background-position:top;
+  background-size:cover;">
+      <div class="container-fluid cover_blur">
+          <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <a class="navbar-brand navbar-link" href="#">
+                      <%= image_tag "logo_header-01.svg", class: "logo" %>
+                      </a>
+                      <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  </div>
+                  <div class="collapse navbar-collapse" id="navcol-1">
+                      <ul class="nav navbar-nav navbar-right">
+                          <li role="presentation"><a href="#">COMO FUNCIONA </a></li>
+                          <li role="presentation"><a href="#">NUESTROS TRABAJOS </a></li>
+                          <li role="presentation" class="nav_start"><a href="#">EMPIEZA AHORA</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+          <header class="header_call">
+              <div class="text-center">
+                  <h1><%= @page.title %></h1>
+                  <hr class="header_line">
+                  <hgroup>
+                      <h4><%= @page.subtitle %></h4></hgroup>
+                  <a href="#">
+                      <%= image_tag "slider_reloj.svg", class: "reloj" %>
+                  EMPIEZA AHORA</a>
+              </div>
+          </header>
+      </div>
+  </div>
+
+  <article>
+  	<div class="container">
+  		<div class="col-md-12">
+      <%= @page.content.html_safe %>
+      <%= @formDelivery.service.name %>
+    <%= form_for @answer, url: {action: "create"}, html:{role: "form"} do |a|  %>
+      <% @formDelivery.service.deliveries.each do |delivery| %>
+        <div class="col-md-3">
+          <li><%= delivery.name %></li>
+          <li><%= delivery.price %></li>
+          <li><%= delivery.description %></li>
+          
+        </div>
+      <% end %>
+        
+       <% @form.each do |f|%>
+        <li><%= f.content %></li>
+          <%= a.fields_for :answers do |question| %>
+            <%= render 'answer_fields', f: question %>
+         <% end %>
+       <% end %>
+       <%= a.hidden_field :form_build_id, value: @page.form_build_id %>
+       <%= a.submit "Create" %>
+     <% end %>
+        
+      </div>
+    </div>
+  </article>

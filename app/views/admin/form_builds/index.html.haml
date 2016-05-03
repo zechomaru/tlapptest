@@ -1,0 +1,28 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 formularios
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header
+            %h5
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Nombre
+                  %th Servicio
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @surveys.each do |survey|
+                %tr
+                  %td= survey.name
+                  %td= survey.service.name
+                  %td= survey.created_at.httpdate.to_date
+                  %td 
+                    = link_to edit_admin_form_build_path(survey) do
+                      %i.fa.fa-edit
+                  %td
+                    = link_to admin_form_build_path(survey), method: :delete, data: { confirm: 'Esta seguro?' } do
+                      %i.fa.fa-remove{style: "color: #B21919;"}

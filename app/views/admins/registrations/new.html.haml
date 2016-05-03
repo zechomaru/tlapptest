@@ -1,0 +1,27 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Nuevo Administrador
+  %section.content
+    .row
+      .col-md-10.col-md-offset-1
+        .box.box-primary
+          .box-header.with-border
+            %h5 Nuevo
+          .box-body
+            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+              .input-field
+                .row
+                  .col-md-8
+                    = f.email_field :email, autofocus: true, class: "validate", id: "fEmail"
+                    %label{for: "fEmail"} Nombre
+                  .col-md-4.text-center
+                    %button.waves-effect.btn.deep-orange.darken-2{style: "margin-top: 10px;"} Guardar
+                  .col-md-8
+                    = f.text_field :name, class: "validate", id: "fName"
+                    %label{for: "fName"} Nombre
+                  .col-md-8
+                    = f.text_field :password, autofocus: true, class: "validate", id: "fpassword"
+                    %label{for: "fpassword"} Nombre
+                  .col-md-8
+                    = f.text_field :password_confirmation, autofocus: true, class: "validate", id: "fpasswordC"
+                    %label{for: "fpasswordC"} Nombre

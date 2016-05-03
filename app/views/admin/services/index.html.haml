@@ -1,0 +1,31 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Todos los servicios
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Nombre
+                  %th Categoria
+                  %th Imagen
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @services.each do |service|
+                %tr
+                  %td= service.name 
+                  - if !service.category.nil?
+                    %td= service.category.name
+                  - else
+                    %td
+                  %td= image_tag service.img.url(:thumb), style: "width: 50%;"
+                  %td= service.created_at.httpdate.to_date 
+                  %td
+                    = link_to edit_admin_service_path(service) do
+                      %i.fa.fa-edit
+                  %td
+                    = link_to admin_service_path(service), method: :delete, data: { confirm: 'Are you sure?' } do
+                      %i.fa.fa-remove

@@ -1,0 +1,25 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Nueva Delivery
+  %section.content
+    .row
+      .col-md-10.col-md-offset-1
+        .box.box-primary
+          .box-header.with-border
+            %h5 Nueva
+          .box-body
+            = form_for [@delivery], url: {action: "create"}, html:{role: "form"} do |f|
+              .input-field
+                .row
+                  .col-md-8
+                    = f.text_field :name, autofocus: true, class: "validate", id: "fName"
+                    %label{for: "fName"} Nombre
+                  .col-md-4.text-center
+                    %button.waves-effect.btn.deep-orange.darken-2{style: "margin-top: 10px;"} Guardar
+                  .col-md-8
+                    = f.text_field :reviews, autofocus: true, class: "validate", id: "Freviews"
+                    %label{for: "freviews"} Reviews
+                  .col-md-8
+                    = f.text_area :description, autofocus: true, class: "validate", id: "Fdescription"
+                  .col-md-8
+                    = f.number_field(:price, in: 1.0..20.0, step: 0.10) 

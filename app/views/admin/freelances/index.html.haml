@@ -1,0 +1,44 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Freelances
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Email
+                  %th Nombre
+                  %th Apellido
+                  %th Telefono
+                  %th Genero
+                  %th Paypal
+                  %th Experiencia
+                  %th Level
+                  %th Role
+                  %th Dinero
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @freelances.each do |freelance|
+                %tr
+                  %td= freelance.email
+                  %td= freelance.name
+                  %td= freelance.last_name
+                  %td= freelance.phone
+                  %td= freelance.gender
+                  %td= freelance.paypal
+                  %td= freelance.xp
+                  %td= freelance.level.name
+                  - if freelance.f_role.nil?
+                    %td
+                  - else
+                    %td= freelance.f_role.name
+                  %td= Wallet.find_by_freelance_id(freelance.id).money.to_s + " $"
+                  %td= freelance.created_at.httpdate.to_date
+                  %td 
+                    = link_to edit_admin_freelance_path(freelance) do
+                      %i.fa.fa-edit
+                  %td
+                    

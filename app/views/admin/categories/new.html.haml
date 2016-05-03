@@ -1,0 +1,17 @@
+%section.content-wrapper
+  %section.content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h5 Nueva Categoria
+          .box-body
+            = form_for [@category], url: {action: "create"}, html:{role: "form"} do |f|
+              .col-md-9
+                .input-field
+                  = f.text_field :name, autofocus: true, class: "validate", id: "fName"
+                  %label{for: "fName"} Nombre
+              .col-md-3
+                .input-field
+                  %button.waves-effect.btn-block.btn-large.deep-orange.darken-2 Crear
+                .imput-field{style: "margin-top: 50px;"}

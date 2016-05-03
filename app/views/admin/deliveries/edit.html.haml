@@ -1,0 +1,18 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Editar Delivery
+  %section.content
+    .row
+      .col-md-10.col-md-offset-1
+        .box.box-primary
+          .box-header.with-border
+            %h5 Editar
+          .box-body
+            = form_for [@delivery], url: {action: "update"}, html:{role: "form"} do |f|
+              .input-field
+                .row
+                  .col-md-8
+                    = f.text_field :name, autofocus: true, class: "validate", id: "fName"
+                    %label{for: "fName"} Nombre
+                  .col-md-4.text-center
+                    %button.waves-effect.btn.deep-orange.darken-2{style: "margin-top: 10px;"} Actualizar

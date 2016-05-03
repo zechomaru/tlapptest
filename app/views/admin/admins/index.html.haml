@@ -1,0 +1,31 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Administradores
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header
+            %h5
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Email
+                  %th Nombre
+                  %th Apellido
+                  %th Genero
+                  %th Cargo
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @admins.each do |admin|
+                %tr
+                  %td= admin.email
+                  %td= admin.name
+                  %td= admin.last_name
+                  %td= admin.gender
+                  %td= admin.role.name
+                  %td= admin.created_at.httpdate.to_date
+                  %td 
+                    = link_to edit_admin_admin_path(admin) do
+                      %i.fa.fa-edit

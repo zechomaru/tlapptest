@@ -1,0 +1,358 @@
+<aside class="main-sidebar">
+<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+	  <!-- Sidebar user panel (optional) -->
+	  <div class="user-panel">
+	    <div class="pull-left image">
+	      <% if !current_admin.avatar.exists? %>
+	        <% if current_admin.gender.capitalize == "Masculino" %>
+	            <%= image_tag "avatar5.png", class: "img-circle", alt: "User Image" %>
+	        <% else %>
+	            <%= image_tag "avatar2.png", class: "img-circle", alt: "User Image" %>
+	        <% end %>
+	      <% else %>
+	          <%= image_tag current_admin.avatar.url(:cover), class: "img-circle", alt: "User Image", style: "height: 45px !important;" %>
+	      <% end %>
+	    </div>
+	    <div class="pull-left info">
+	      <p><%= current_admin.name.capitalize %> <%= current_admin.last_name.capitalize %></p>
+	      <!-- Status -->
+	      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+	    </div>
+	  </div>
+	  <!-- search form (Optional) -->
+	  <!-- /.search form -->
+	  <!-- Sidebar Menu -->
+	  <ul class="sidebar-menu">
+	    <!--li class="header">HEADER</li-->
+	    <!-- Optionally, you can add icons to the links -->
+
+	    <!-- nav 1 -->
+	      <% if current_page?(admin_dashboard_path) %>
+	        <li class="treeview active">
+	      <%else%>
+	        <li class="treeview">
+	      <%end%>
+	      <%= link_to admin_dashboard_path do %>
+	        <i class="fa fa-circle-o"></i>
+	        <span>Home</span>
+	      <% end %>
+	    </li>
+
+	    <!-- nav 2 -->
+	    <% if current_page?(admin_pages_path) or current_page?(new_admin_page_path) %>
+	      <li class="treeview active">
+	    <%else%>
+	      <li class="treeview">
+	    <%end%>
+		      <a href="#">
+			      <i class="fa fa-link"></i> 
+			      <span>Paginas</span>
+			      <i class="fa fa-angle-left pull-right"></i>
+		      </a>
+		      <ul class="treeview-menu menu-open" style="">
+		      <% if current_page?(new_admin_page_path) %>
+		      	<li class="active">
+		      <%else%>
+		        <li class="">
+		      <%end%>
+		        <%= link_to new_admin_page_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Nuevo</span>
+		        <% end %>
+		        </li>
+		        <% if current_page?(admin_pages_path) %>
+		        	<li class="active">
+		        <%else%>
+		        	<li class="">
+		        <%end%>
+		        <%= link_to admin_pages_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Todas las paginas</span>
+		        <% end %>
+		        </li>
+		      </ul>
+	    </li>
+
+	    <!-- nav 3 -->
+	    <% if current_page?(admin_categories_path) or current_page?(new_admin_category_path) or current_page?(admin_bundles_path) or current_page?(new_admin_bundle_path) or current_page?(admin_services_path) or current_page?(new_admin_service_path) %>
+	    	<li class="treeview active">
+	    <%else%>
+	      <li class="treeview">
+	    <%end%>
+	      <a href="#">
+	        <i class="fa fa-share"></i> 
+	        <span>Servicios</span>
+	        <i class="fa fa-angle-left pull-right"></i>
+	      </a>
+	      <ul class="treeview-menu menu-open" style="">
+	        <% if current_page?(new_admin_service_path) %>
+	          <li class="active">
+	        <%else%>
+	          <li class="">
+	        <%end%>
+	        <%= link_to new_admin_service_path do %>
+	          <i class="fa fa-circle-o"></i>
+	          <span>Nuevo</span>
+	        <% end %>
+	        </li>
+	        <% if current_page?(admin_services_path) %>
+	          <li class="active">
+	        <%else%>
+	          <li class="">
+	        <%end%>
+		        <%= link_to admin_services_path do %>
+		          <i class="fa fa-circle-o"></i>
+		          <span>Todos los servicios</span>
+		        <% end %>
+	        	</li>
+	        <% if current_page?(admin_categories_path) or current_page?(new_admin_category_path) %>
+	          <li class="active">
+	        <%else%>
+	          <li class="">
+	        <%end%>
+	          <a href="#">
+		          <i class="fa fa-circle-o"></i>
+		           <span>Categorias</span>
+		           <i class="fa fa-angle-left pull-right"></i>
+	          </a>
+	          <ul class="treeview-menu menu-open" style="">
+	            <% if current_page?(new_admin_category_path) %>
+	              <li class="active">
+	            <%else%>
+	              <li class="">
+	            <%end%>
+	              <%= link_to new_admin_category_path do %>
+	                <i class="fa fa-circle-o"></i>
+	                <span>Nueva</span>
+	              <% end %>
+	            </li>
+	            <% if current_page?(admin_categories_path) %>
+	              <li class="active">
+	            <%else%>
+	              <li class="">
+	            <%end%>
+	              <%= link_to admin_categories_path do %>
+	                <i class="fa fa-circle-o"></i>
+	                <span>Todas las categorias</span>
+	              <% end %>
+	            </li>
+	          </ul>
+	        </li>
+	        <% if current_page?(admin_bundles_path) or current_page?(new_admin_bundle_path) %>
+	          <li class="active">
+	        <%else%>
+	          <li class="">
+	        <%end%>
+	          <a href="#">
+		          <i class="fa fa-circle-o"></i>
+		          <span>Paquetes</span>
+		          <i class="fa fa-angle-left pull-right"></i>
+	          </a>
+	          <ul class="treeview-menu menu-open" style="">
+	            <% if current_page?(new_admin_bundle_path) %>
+	              <li class="active">
+	            <%else%>
+	              <li class="">
+	            <%end%>
+	              <%= link_to new_admin_bundle_path do %>
+	                <i class="fa fa-circle-o"></i>
+	                <span>Nueva</span>
+	              <% end %>
+	            </li>
+	            <% if current_page?(admin_bundles_path) %>
+	              <li class="active">
+	            <%else%>
+	              <li class="">
+	            <%end%>
+	              <%= link_to admin_bundles_path do %>
+	                <i class="fa fa-circle-o"></i>
+	                <span>Todos los paquetes</span>
+	              <% end %>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </li>
+
+	    <!-- nav 4 -->
+	    <% if current_page?(admin_freelances_path) or current_page?(new_admin_freelance_path) or current_page?(admin_f_roles_path) or current_page?(new_admin_f_role_path) %>
+	      <li class="treeview active">
+	    <%else%>
+	      <li class="treeview">
+	    <%end%>
+		      <a href="#">
+			      <i class="fa fa-link"></i> 
+			      <span>Freelances</span>
+			      <i class="fa fa-angle-left pull-right"></i>
+		      </a>
+		      <ul class="treeview-menu menu-open" style="">
+		      <% if current_page?(new_admin_freelance_path) %>
+		      	<li class="active">
+		      <%else%>
+		        <li class="">
+		      <%end%>
+		        <%= link_to new_admin_freelance_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Nuevo</span>
+		        <% end %>
+		        </li>
+		        <% if current_page?(admin_freelances_path) %>
+		        	<li class="active">
+		        <%else%>
+		        	<li class="">
+		        <%end%>
+		        <%= link_to admin_freelances_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Todos los freelances</span>
+		        <% end %>
+		        </li>
+		        <% if current_page?(admin_f_roles_path) or current_page?(new_admin_f_role_path) %>
+	          	<li class="active">
+	        	<%else%>
+	          	<li class="">
+	        	<%end%>
+	          	<a href="#">
+		          	<i class="fa fa-circle-o"></i>
+		           	<span>Roles</span>
+		           	<i class="fa fa-angle-left pull-right"></i>
+	          	</a>
+	          <ul class="treeview-menu menu-open" style="">
+	          	<% if current_page?(new_admin_f_role_path) %>
+		      			<li class="active">
+		      		<%else%>
+		        		<li class="">
+		      		<%end%>
+		        	<%= link_to new_admin_f_role_path do %>
+			        	<i class="fa fa-circle-o"></i>
+			        	<span>Nuevo</span>
+		        	<% end %>
+		        	</li>
+		        	<% if current_page?(admin_f_roles_path) %>
+		        		<li class="active">
+		        	<%else%>
+		        		<li class="">
+		        	<%end%>
+		        	<%= link_to admin_f_roles_path do %>
+			        	<i class="fa fa-circle-o"></i>
+			        	<span>Todos los roles</span>
+		        	<% end %>
+		        	</li>
+	          </ul>
+		      </ul>
+	    </li>
+
+
+	<!-- nav 5 -->
+	    <% if current_page?(admin_admins_path) or current_page?(new_admin_admin_path) or current_page?(new_admin_role_path) or current_page?(admin_roles_path)%>
+	      <li class="treeview active">
+	    <%else%>
+	      <li class="treeview">
+	    <%end%>
+		      <a href="#">
+			      <i class="fa fa-link"></i> 
+			      <span>Administradores</span>
+			      <i class="fa fa-angle-left pull-right"></i>
+		      </a>
+		      <ul class="treeview-menu menu-open" style="">
+		      <% if current_page?(new_admin_admin_path) %>
+		      	<li class="active">
+		      <%else%>
+		        <li class="">
+		      <%end%>
+		        <%= link_to new_admin_admin_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Nuevo</span>
+		        <% end %>
+		        </li>
+		        <% if current_page?(admin_admins_path) %>
+		        	<li class="active">
+		        <%else%>
+		        	<li class="">
+		        <%end%>
+		        <%= link_to admin_admins_path do %>
+			        <i class="fa fa-circle-o"></i>
+			        <span>Todos los administradores</span>
+		        <% end %>
+		        </li>
+		        <% if current_page?(new_admin_role_path) or current_page?(admin_roles_path)%>
+	          <li class="active">
+	        <%else%>
+	          <li class="">
+	        <%end%>
+	          <a href="#">
+		          <i class="fa fa-circle-o"></i>
+		           <span>Roles</span>
+		           <i class="fa fa-angle-left pull-right"></i>
+	          </a>
+	          <ul class="treeview-menu menu-open" style="">
+	          	<% if current_page?(new_admin_role_path) %>
+		      			<li class="active">
+		      		<%else%>
+		        		<li class="">
+		      		<%end%>
+		        	<%= link_to new_admin_role_path do %>
+			        	<i class="fa fa-circle-o"></i>
+			        	<span>Nuevo</span>
+		        	<% end %>
+		        	</li>
+		        	<% if current_page?(admin_roles_path) %>
+		        		<li class="active">
+		        	<%else%>
+		        		<li class="">
+		        	<%end%>
+		        	<%= link_to admin_roles_path do %>
+			        	<i class="fa fa-circle-o"></i>
+			        	<span>Todos los roles</span>
+		        	<% end %>
+		        	</li>
+	          </ul>
+		      </ul>
+	    </li>
+
+	    <!-- nav 6 -->
+	        <% if current_page?(admin_form_builds_path) or current_page?(new_admin_form_build_path) %>
+	          <li class="treeview active">
+	        <%else%>
+	          <li class="treeview">
+	        <%end%>
+	    	      <a href="#">
+	    		      <i class="fa fa-link"></i> 
+	    		      <span>Formularios</span>
+	    		      <i class="fa fa-angle-left pull-right"></i>
+	    	      </a>
+	    	      <ul class="treeview-menu menu-open" style="">
+	    	      <% if current_page?(new_admin_form_build_path) %>
+	    	      	<li class="active">
+	    	      <%else%>
+	    	        <li class="">
+	    	      <%end%>
+	    	        <%= link_to new_admin_form_build_path do %>
+	    		        <i class="fa fa-circle-o"></i>
+	    		        <span>Nuevo</span>
+	    	        <% end %>
+	    	        </li>
+	    	        <% if current_page?(admin_form_builds_path) %>
+	    	        	<li class="active">
+	    	        <%else%>
+	    	        	<li class="">
+	    	        <%end%>
+	    	        <%= link_to admin_form_builds_path do %>
+	    		        <i class="fa fa-circle-o"></i>
+	    		        <span>Todos los formularios</span>
+	    	        <% end %>
+	    	        </li>
+	    	      </ul>
+	        </li>
+
+
+	        <!-- nav 7 -->
+	            
+	            
+
+
+	    
+	  </ul><!-- /.sidebar-menu -->
+	</section>
+<!-- /.sidebar -->
+</aside>

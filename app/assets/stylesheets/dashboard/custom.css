@@ -1,0 +1,108 @@
+.list{
+  display: inline-block;
+  margin-right: 10px; 
+  margin-bottom: 20px;
+}
+#target img {
+	width: 100px;
+	height: 100px;
+}
+
+#targetHover img{
+	width: 100px;
+	height: 100px;
+}
+.collection_select{
+	border: solid #3C8DBC 1px;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  height: 30px;
+  -webkit-transition: all 0.3s ease-in;
+     -moz-transition: all 0.3s ease-in;
+      -ms-transition: all 0.3s ease-in;
+       -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+}
+.collection_select option{
+	background-color: #ffffff;
+	color: #2B2B2B;
+}
+.collection_select:hover{
+	background-color: #3C8DBC;
+	color: #ffffff;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#selectedService{
+	display: none;
+}
+#selectedBundle{
+	display: none;
+}
+
+.picturePreview{
+  margin: 10px auto;
+  width: 60%;
+  border: dashed #ECBCB6 3px;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 130px;
+  text-align: center;
+}
+
+.inputFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputFile + label {
+    max-width: 80%;
+    font-size: 1rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+/*.inputFile + label {
+    display: none;
+}*/
+
+.inputFile:focus + label,
+.inputFile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputFile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+.inputFile + label {
+    color: #FFFFFF;
+    background-color: #DD4B39;
+}
+
+.inputFile:focus + label,
+.inputFile.has-focus + label,
+.inputFile + label:hover {
+    background-color: #D73925;
+}
+.notice{
+      position: fixed;
+    top: 53px;
+    right: 15px;
+    z-index: 2000;
+}

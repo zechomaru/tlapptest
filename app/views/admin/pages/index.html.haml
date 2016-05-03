@@ -1,0 +1,41 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Todas las paginas
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Titulo
+                  %th Estado
+                  %th Servicio
+                  %th Paquete
+                  %th Creado
+                  %th Actualizado
+                  %th{colspan: "2"} Acciones
+              - @pages.each do |page|
+                %tr
+                  %td= page.title
+                  - if page.visibility == true
+                    %td{style: "color: #04A756;"} Activo
+                  - else
+                    %td{style: "color: #C82727;"} Desactivado
+                  - if page.service.nil?
+                    %td
+                  - else
+                    %td= page.service.name
+                  - if page.bundle.nil?
+                    %td
+                  - else
+                    %td= page.bundle.name
+                  %td= page.created_at.httpdate.to_date
+                  %td= page.updated_at.httpdate.to_date
+                  %td
+                    = link_to edit_admin_page_path(page) do
+                      %i.fa.fa-edit
+                  %td
+                    = link_to admin_page_path(page), method: :delete, data: { confirm: 'Esta seguro?' } do
+                      %i.fa.fa-remove{style: "color: #B21919;"}

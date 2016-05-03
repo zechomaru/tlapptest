@@ -1,0 +1,443 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require bootstrap
+ *= require font-awesome.min
+ *= require_self
+ */
+
+/*helpers*/
+ .show_hover{
+  display:none;
+  transition:all 0.5s ease-in;
+}
+
+a:hover{
+  text-decoration:none;
+}
+
+.menu_hide{
+  display:none !important;
+}
+
+.menu_show{
+  display:inline-block !important;
+}
+/*header*/
+div.cover{
+  background-image: url("fondo_ciudad_dia.png");
+  background-repeat:no-repeat;
+  background-position:top;
+  background-size:cover;
+}
+
+div.container-fluid.cover_blur{
+  background-color:rgba(115, 115, 115, 0.09);
+}
+
+nav.navbar.navbar-default{
+  border:none;
+  background-image:none;
+  background-color:rgba(255,0,0,0);
+  box-shadow:none;
+  margin-top:20px;
+  
+}
+
+.header_call{
+  margin-top:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  margin-bottom:80px;
+}
+
+.header_call div{
+  max-width:50%;
+  padding:20px;
+}
+
+.header_call h1{
+  font-family:'Lato',san serif;
+  font-weight:600;
+  color:#FFF;
+}
+
+.header_call h4{
+  font-family:'Lato',san serif;
+  font-weight:400;
+  color:#FFF;
+}
+
+.header_call a{
+  background-color:#FF5A49;
+  text-decoration:none;
+  padding:15px 20px;
+  display:block;
+  width:50%;
+  margin:50px auto 10px auto;
+  border-radius:5px;
+  font-family:'Lato', sans-serif;
+  font-weight:600;
+  color:#ffffff;
+  transition:all 1s;
+}
+
+.header_call a:hover{
+  background-color:rgb(61,99,136);
+}
+
+.header_call a:hover .reloj{
+  transform:translateX(2px);
+}
+
+.header_call a .reloj{
+  margin-top:-9px;
+  transition:all 0.6s ease-in;
+}
+
+.logo{
+  margin-top:-10px;
+  width:60%;
+}
+.navbar-right li a{
+  transition:all 0.5s ease-in;
+}
+
+.navbar-right li a:after{
+  transition:all 0.5s ease-in;
+  width:0%;
+  content:'';
+}
+
+.navbar-right li:hover a:after{
+  content:'';
+  border-bottom:solid 2px;
+  width:100%;
+  height:2px;
+  display:block;
+  margin:0 auto;
+  border-color:#ffffff;
+}
+
+.nav_start{
+  transition:all 0.5s ease-in;
+}
+
+.nav_start a{
+  border:solid #fff 1px;
+  font-family:'Lato', sans-serif;
+  font-weight:400;
+  color:rgb(0,65,129) !important;
+  border-radius:4px;
+  transition:all 0.5s ease-in;
+}
+
+.nav_start:hover a:after{
+  content:'';
+  border:none;
+  display:none !important;
+}
+
+.nav_start:hover{
+  background-color:#FF5A49;
+  border-radius:4px;
+}
+
+.nav_start:hover > a{
+  border-color: #FF5A49;
+  color:#ffffff !important;
+}
+
+.navbar-right li a{
+  font-family:'Lato', sans-serif;
+  font-weight:600;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.navbar-right li:hover a{
+  color:#ffffff !important;
+}
+
+.header_line{
+  margin-top:0px;
+  border-color:rgb(0,65,129);
+}
+/*services*/
+.service_linea{
+  width:100%;
+}
+
+.service_menu a{
+  padding:5px 5px 5px 5px;
+  background-color:#CCCCCC;
+  display:block;
+  width:100%;
+  color:#4D4D4D;
+  font-family:'Lato', sans-serif;
+  border-radius:2px;
+  text-align:center;
+  font-weight:600;
+  margin-bottom:20px;
+  transition:all 0.5s ease-in;
+}
+
+.service_menu .active{
+  padding:5px 5px 5px 5px;
+  background-color:#004181;
+  display:block;
+  width:100%;
+  color:#ffffff !important;
+  font-family:'Lato', sans-serif;
+  border-radius:2px;
+  text-align:center;
+  font-weight:600;
+  margin-bottom:20px;
+  text-decoration:none;
+}
+
+.service_menu a:hover .show_hover{
+  display:inline-block;
+}
+
+.service_menu a .hide_hover{
+  transition:all 0.5s ease-out;
+}
+
+.service_menu a:hover .hide_hover{
+  display:none;
+}
+
+.service_menu a:hover{
+  text-decoration:none;
+  background-color:rgb(0,65,129);
+  color:#ffffff;
+}
+
+.service_menu{
+  margin-top:50px;
+}
+
+.service h4{
+  font-family:'Lato',sans-serif;
+  font-weight:400;
+  transition:all 0.5s ease-in;
+}
+
+.service img{
+  width:50%;
+  margin-bottom:20px;
+}
+
+.service_link:hover .service h4{
+  color:rgb(0,65,129);
+}
+
+.service_link:hover .service .show_hover{
+  display:inline-block;
+}
+
+.service_link:hover .service .hide_hover{
+  display:none;
+}
+
+.service_link:hover .service{
+  border-color:red;
+}
+
+.service{
+  text-decoration:none;
+  color:#525252;
+  height:250px;
+  transition:all 0.5s ease-in;
+}
+
+#service{
+  padding-top:40px;
+  padding-bottom:100px;
+}
+/*process*/
+.process a{
+  background-color:rgb(0,65,129);
+  padding:10px 20px 10px 20px;
+  color:#ffffff;
+  font-family:'Lato', sans-serif;
+  font-weight:600;
+  display:block;
+  margin:5% auto auto auto;
+  text-decoration:none;
+  border-radius:5px;
+  transition:all 0.5s ease-in;
+}
+
+.process a:hover{
+  background-color:rgb(58,95,132);
+}
+.process_pasos{
+      margin-bottom: 30px;
+    width: 145px;
+    height: 145px;
+    margin: auto;
+    border-radius: 50%;
+    border: 10px solid #ececec;
+    margin-bottom: 20px;
+    position: relative;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.pixeden {
+    height: 156px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+}
+.p_image{
+  width: 145px;
+  margin-top: -17px;
+  margin-left: -9px;
+}
+.process_title{
+  padding-bottom: 40px;
+}
+.red:hover .process_pasos {
+    border: 10px solid #ef6a54;
+}
+.green:hover .process_pasos {
+    border: 10px solid #ef6a54;
+}
+.blue:hover .process_pasos {
+    border: 10px solid #ef6a54;
+}
+.process{
+  background-color:#fafafa;
+  border-radius:5px;
+  padding-bottom:50px;
+  padding-top:30px;
+}
+.process h5{
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+.process p{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+/*footer*/
+.footer_bar{
+  background-color:#ef6a54;
+  height:20px;
+  padding-top:10px;
+  margin:0;
+  width:100%;
+  padding-bottom:10px;
+}
+
+.footer_bar div{
+  border-top:dashed;
+  border-top-width:2px;
+  border-top-color:#ffffff;
+}
+
+.footer_cover{
+  background-color:rgba(0, 65, 129, 0.18);
+}
+
+.footer_end h5{
+  font-family:'lato', sans-serif;
+  font-weight:600;
+  color:#ffffff;
+}
+
+.footer_end{
+  border-top:solid;
+  border-top-width:1px;
+  border-color:rgb(194,194,194);
+}
+
+#footer{
+  margin-top:100px;
+  background-color:#666666;
+}
+/*media*/
+/*process*/
+@media (max-width:767px) {
+  .process a{
+    width:70%;
+  }
+}
+
+@media (max-width:1199px) {
+  .process a{
+    width:30%;
+  }
+}
+
+@media (min-width:1200px) {
+  .process a{
+    width:20%;
+  }
+}
+/*service*/
+@media (max-width:767px) {
+  .service img{
+    margin-bottom:0px !important;
+  }
+}
+
+@media (max-width:767px) {
+  .service{
+    padding:20px 10px 0px 10px !important;
+    margin-top:20px !important;
+    height:140px !important;
+  }
+}
+
+@media (max-width:767px) {
+  .service h4{
+    font-size:14px;
+  }
+}
+/*header*/
+@media (max-width:767px) {
+  .navbar-right{
+    margin-right:-15px;
+  }
+}
+
+@media (max-width:767px) {
+  .header_call a{
+    width:100%;
+  }
+}
+
+@media (max-width:991px) {
+  .service{
+    height:200px;
+  }
+}
+
+@media (min-width:1200px) {
+  .navbar-right{
+    margin-right:80px;
+  }
+}
+
+@media (max-width:1199px) {
+  .navbar-right{
+    margin-right:20px;
+  }
+}

@@ -1,0 +1,23 @@
+%section.content-wrapper
+  %section.content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h5 Nuevo Formulario
+          .box-body
+            = form_for [@survey], url: {action: "create"}, html:{role: "form"} do |f|
+              .col-md-9
+                .input-field
+                  = f.text_field :name, autofocus: true, class: "validate", id: "fName"
+                  %label{for: "fName"} Nombre
+                .input-field
+                  = f.fields_for :questions do |question|
+                    = render 'question_fields', f: question
+                  = link_to_add_fields "Agregar", f, :questions
+              .col-md-3
+                .input-field
+                  %button.waves-effect.btn-block.btn-large.deep-orange.darken-2 Crear
+                .imput-field{style: "margin-top: 50px;"}
+                .imput-field
+                  = f.collection_select(:service_id, Service.all, :id, :name, {:include_blank => 'Selecione un servicio'}, class: "collection_select", style:"display:block; margin-top:20px !important;")

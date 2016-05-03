@@ -1,0 +1,105 @@
+    <div class="cover">
+        <div class="container-fluid cover_blur">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header" style="height: auto;">
+                        <a class="navbar-brand navbar-link" href="#">
+                        <%= image_tag "logo_header-02.png", class: "logo" %>
+                        </a>
+                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li role="presentation"><a href="#">COMO FUNCIONA </a></li>
+                            <li role="presentation"><a href="#">NUESTROS TRABAJOS </a></li>
+                            <li role="presentation" class="nav_start"><a href="#">EMPIEZA AHORA</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <header class="header_call">
+                <div class="text-center">
+                    <%= image_tag "elemento_reloj-01.png", style: "width:100%;" %>
+                    <h1>SOLUCIONES EN 4 HORAS</h1>
+                    <hr class="header_line">
+                    <hgroup>
+                        <h4>Realizadas por el top 8% de freelancers profesionales de la industria.</h4>
+                        <h4>Por medio de filtros y pruebas en Trely solo trabajamos con los mejores.</h4>
+                        <h4>Calidad y rapidez garantizada</h4>
+                    </hgroup>
+                    <a href="#">
+                        <%= image_tag "slider_reloj.svg", class: "reloj" %>
+                    EMPIEZA AHORA</a>
+                </div>
+            </header>
+        </div>
+    </div>
+    <!--services -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <div class="row filters service_menu">
+                        <h2 class="text-center" style="margin-bottom: 50px;">¿Qué servicio necesita?</h2>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#" class="active" data-filter="*">
+                            <%= image_tag "iconos_servicios_blanco-03.svg", class: "show_hover" %>
+                            <%= image_tag "iconos_servicios-03.svg", class: "hide_hover" %>
+                             Todos</a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#" data-filter=".Diseño">
+                            <%= image_tag "iconos_servicios_blanco-02.svg", class: "show_hover" %>
+                            <%= image_tag "iconos_servicios-02.svg", class: "hide_hover" %>
+                             Diseño</a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#" data-filter=".Redacción">
+                            <%= image_tag "iconos_servicios_blanco-03.svg", class: "show_hover" %>
+                            <%= image_tag "iconos_servicios-03.svg", class: "hide_hover" %>
+                             Redación</a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a href="#" data-filter=".Paquete">
+                            <%= image_tag "iconos_servicios_blanco-04.svg", class: "show_hover" %>
+                            <%= image_tag "iconos_servicios-04.svg", class: "hide_hover" %>
+                             Paquetes</a>
+                        </div>
+                        <div class="col-md-12">
+                            <%= image_tag "linea_servicios-01.svg", class: "service_linea" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service list -->
+    <section id="service">
+        <div class="container">
+            <div class="row isotope-container">
+                <% @pagesServices.each do |page| %>
+                    <a class="service_link" href="service/<%= page.url %>">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 isotope-item <%= page.service.category.name %>">
+                            <div class="service text-center">
+                                <%= image_tag page.service.img.url, class: "hide_hover" %>
+                                <%= image_tag page.service.imghover.url, class: "show_hover" %>
+                                <h4 style="width: 50%;margin: 0 auto;"><%= page.service.name %></h4>
+                            </div>
+                        </div>
+                    </a>
+                <% end %>
+                <% @pagesBundles.each do |bundle| %>
+                    <a class="service_link" href="bundle/<%= bundle.url %>">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 isotope-item Paquete">
+                            <div class="service text-center">
+                                <%= image_tag bundle.bundle.img.url, class: "hide_hover" %>
+                                <%= image_tag bundle.bundle.imghover.url, class: "show_hover" %>
+                                <h4 style="width: 50%;margin: 0 auto;"><%= bundle.bundle.name %></h4>
+                            </div>
+                        </div>
+                    </a>
+                <% end %>
+            </div>
+        </div>
+    </section>
+

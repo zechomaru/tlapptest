@@ -1,0 +1,24 @@
+%section.content-wrapper
+  %section.content-header
+    %h1 Roles
+  %section.content
+    .row
+      .col-xs-12
+        .box
+          .box-body.table-responsive.no-padding
+            %table.table.table-hover
+              %tbody
+                %tr
+                  %th Nombre
+                  %th Fecha de creación
+                  %th{colspan: "2"} Acciones
+              - @roles.each do |role|
+                %tr
+                  %td= role.name
+                  %td= role.created_at.httpdate.to_date
+                  %td 
+                    = link_to edit_admin_f_role_path(role) do
+                      %i.fa.fa-edit
+                  %td
+                    = link_to admin_f_role_path(role), method: :delete, data: { confirm: 'Esta seguro?' } do
+                      %i.fa.fa-remove{style: "color: #B21919;"}

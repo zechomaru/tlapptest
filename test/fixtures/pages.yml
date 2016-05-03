@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  title: MyString
+  subtitle: MyString
+  buttom: MyString
+  paso_one: MyText
+  paso_two: MyText
+  paso_tree: MyText
+  service_id: 
+  bundle_id: 
+
+two:
+  url: MyString
+  title: MyString
+  subtitle: MyString
+  buttom: MyString
+  paso_one: MyText
+  paso_two: MyText
+  paso_tree: MyText
+  service_id: 
+  bundle_id: 
